@@ -146,9 +146,9 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 .cascade-head span{
   font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--mute);
 }
-.beads{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start;gap:0}
+.beads{list-style:none;margin:0;padding:0;display:flex;align-items:flex-end;gap:0}
 
-.stack{flex:0 0 auto;width:8.6rem;display:flex;flex-direction:column}
+.stack{position:relative;flex:0 0 auto;width:9.6rem;justify-content:flex-end;display:flex;flex-direction:column}
 .bead{
   background:#fff;border:1px solid var(--rule);border-top:3px solid var(--c);
   border-radius:2px;padding:.5rem .6rem;text-align:center;
@@ -163,30 +163,50 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
   color:var(--mute);margin-top:.25rem;
 }
 
-/* a dead-end branch beneath a body — oversight that returned nothing */
-.off{display:flex;flex-direction:column;align-items:center;text-align:center}
-.off .drop{
-  font-family:var(--mono);font-size:.53rem;letter-spacing:.05em;color:var(--mute);
-  padding:.42rem 0 .38rem;position:relative;
+/* ── vertical relationships ──────────────────────────────────────
+   ABOVE  = a body that supervises the one beneath it.
+   BELOW  = a body appointed by the one above it.
+   The double arrow marks a closed loop: a complaint returned to the
+   body it was made about.
+   ─────────────────────────────────────────────────────────────── */
+.over,.under{display:flex;flex-direction:column;align-items:center;text-align:center}
+/* the appointee hangs below without lifting its parent off the line */
+.under{position:absolute;top:100%;left:0;right:0}
+.cascade.has-under{padding-bottom:8.6rem}
+.over .bead,.under .bead{width:100%;border-top-width:2px;opacity:.96}
+.over .bead b,.under .bead b{font-size:.76rem}
+
+.over .rel,.under .rel,.under .tail{
+  font-size:.585rem;line-height:1.3;color:var(--mute);position:relative;
 }
-.off .drop::before{
-  content:"";position:absolute;left:50%;top:0;width:1px;height:.38rem;background:var(--c);
+.over .rel{padding:.46rem .15rem .34rem}
+.under .rel{padding:.4rem .15rem .34rem}
+.under .tail{padding:.34rem .2rem 0}
+
+/* connector: up to a supervisor */
+.over .rel::before{
+  content:"";position:absolute;left:50%;top:.05rem;width:1px;height:.34rem;background:var(--c);
 }
-.off .drop::after{
-  content:"";position:absolute;left:50%;bottom:0;width:1px;height:.34rem;background:var(--c);
+.over .rel::after{
+  content:"\2191";position:absolute;left:50%;bottom:-.14rem;transform:translateX(-50%);
+  color:var(--c);font-size:.62rem;line-height:1;
 }
-.off .bead{width:100%;border-top-width:2px;opacity:.94}
-.off .bead b{font-size:.76rem}
-.off .tail{
-  font-size:.6rem;line-height:1.32;color:var(--mute);
-  padding:.35rem .2rem 0;position:relative;
+.over.loop .rel::after{content:"\21C5"}
+
+/* connector: down to an appointee */
+.under .rel::before{
+  content:"";position:absolute;left:50%;top:0;width:1px;height:.3rem;background:var(--c);
 }
-.off .tail::before{
-  content:"\21B3";position:absolute;left:.1rem;top:.3rem;color:#B9BEC4;font-size:.62rem;
+.under .rel::after{
+  content:"\2193";position:absolute;left:50%;bottom:-.1rem;transform:translateX(-50%);
+  color:var(--c);font-size:.62rem;line-height:1;
+}
+.under .tail::before{
+  content:"\21B3";position:absolute;left:.1rem;top:.28rem;color:#B9BEC4;font-size:.62rem;
 }
 
 .link{
-  flex:1 1 0;min-width:0;position:relative;z-index:1;margin-top:1.45rem;
+  flex:1 1 0;min-width:0;position:relative;z-index:1;margin-bottom:1.45rem;
   font-size:.665rem;line-height:1.3;color:var(--mute);text-align:center;padding:0 .55rem;
   background-color:var(--paper);
 }
@@ -216,7 +236,9 @@ footer .year{margin-top:.9rem}
 @media(max-width:1080px){
   .beads{flex-wrap:wrap;gap:.45rem}
   .stack{width:calc(50% - .8rem)}
-  .link{flex:0 0 100%;text-align:left;padding:.15rem 0 .15rem 1rem;margin-top:0;background:none}
+  .under{position:static}
+  .cascade.has-under{padding-bottom:1.3rem}
+  .link{flex:0 0 100%;text-align:left;padding:.15rem 0 .15rem 1rem;margin-bottom:0;background:none}
   .link::before{display:none}
   .link::after{left:.15rem;right:auto;border-left:3px solid transparent;
     border-right:3px solid transparent;border-top:4px solid #B9BEC4;border-bottom:0}
