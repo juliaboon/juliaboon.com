@@ -94,18 +94,37 @@ Three subjects, each carried from one institution to the next over seven years.
 
 | Chain | Beads |
 |---|---|
-| **Protection** 2019–2026 | Police → Child protection → Family Court → Public healthcare → Executive tribunals |
-| **The assets** 2020–2026 | Police → Single expert valuation → Accounting body → Corporate regulator → Ombudsman |
-| **Representation** 2021–2026 | Solicitors → Legal services commissioners → Costs assessment |
+| **Not in the best interest of children** 2019–2026 | Police *(→LECC)* → Child protection → Family Court *(→ICL)* → Public healthcare → Executive tribunals |
+| **Non-equitable** 2020–2026 | Police → Single expert valuation → Accounting body → Corporate regulators (ATO · ASIC) → Ombudsman |
+| **Legal protections** 2021–2026 | Solicitors → Legal services commissioners → Costs assessment |
 
-**Visual grammar:** institutions are boxes; what followed sits in the gap
-between them, unboxed and unattributed, because it belongs to no one. Each bead
-carries its year and its branch colour, so the reader can see a subject crossing
-from executive to judicial and back.
+### Visual grammar
 
-**No causal claim is made.** The note above the chains says so explicitly:
-*"only the order in which things happened."* A reader draws the inference; the
-page does not assert it. That is both safer and more persuasive.
+- **Beads** are institutions — boxed, with year and branch colour.
+- **Links** are what followed — unboxed, in the gap between beads, because
+  they belong to no one.
+- **Branches** hang *beneath* a bead: an oversight body that was asked and
+  returned nothing. A branch is a dead end, not a step forward, so it drops
+  down rather than continuing across.
 
-To add a bead: copy a `<li class="bead">` and the `<li class="link">` before it.
-Colour is set per bead with `style="--c:#…"` so a chain can cross branches.
+Two branches at present:
+
+| Parent | Branch | Tail |
+|---|---|---|
+| Police 2019 | LECC 2024 | referred to internal investigation; police closed it without investigating |
+| Family Court 2021 | Independent children's lawyer 2021 | police records not disclosed; professional complaint not investigated |
+
+The ICL hangs from the Family Court rather than sitting in the legal-profession
+column, because the appointment is the court's.
+
+### No causal claim
+
+The note above the chains says so: *"only the order in which things happened."*
+A reader draws the inference. One they make themselves is one they defend;
+one that is asserted for them is one they argue with.
+
+### Adding to a chain
+
+Copy a `<li class="stack">` and the `<li class="link">` before it. Colour is set
+per bead with `style="--c:#…"` so a chain can cross branches. To add a dead-end
+branch, copy an `<div class="off">` block inside the stack.
