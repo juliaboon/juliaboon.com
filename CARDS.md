@@ -94,7 +94,7 @@ Three subjects, each carried from one institution to the next over seven years.
 
 | Chain | Beads |
 |---|---|
-| **Not in the best interest of children** 2019–2026 | Police *(→LECC)* → Child protection → Family Court *(→ICL)* → Public healthcare → Executive tribunals |
+| **Not in the best interest of children** 2019–2026 | Police *(→LECC)* → Child protection → Family Court *(→ICL)* → Family reports → Public healthcare → Executive tribunals |
 | **Non-equitable** 2017–2026 | Child support → Police → Family Court → Single expert valuation *(→Accounting body)* → Corporate regulators (ATO · ASIC) → Ombudsman |
 | **Legal protections** 2021–2026 | Solicitors → Legal aid *(→Internal review)* → Pro bono schemes → Legal services commissioners → Costs assessment |
 
@@ -338,3 +338,42 @@ the guideline and will not put a statutory claim on a public page from memory.
 **Send me the provision and I will cite it precisely.** With a guideline number
 the sentence becomes: *"Guideline X requires … The reasons do not refer to it."*
 That is much stronger than the current wording, and it is unanswerable.
+
+---
+
+## Family reports — s.60B verified
+
+The card cites the statute directly, and the citation is current:
+
+> **Family Law Act 1975 (Cth), s.60B** — as substituted by the Family Law
+> Amendment Act 2023 (No. 87, 2023), Schedule 1 item 4, in force 6 May 2024:
+>
+> *The objects of this Part are:*
+> *(a) to ensure that the best interests of children are met, including by
+> ensuring their safety; and*
+> ***(b) to give effect to the Convention on the Rights of the Child** done at
+> New York on 20 November 1989.*
+
+Australia ratified the Convention in 1990 ([1991] ATS 4). The obligation to give
+effect to it is not aspirational — it is an object of Part VII, and the courts
+must read the parenting provisions in light of it.
+
+### What the card says
+
+> Section 60B of the Family Law Act provides that an object of the parenting
+> provisions is to give effect to the Convention on the Rights of the Child.
+> Risks raised in evidence do not appear in the reports, and conclusions within a
+> single report are inconsistent with each other. One report was released to the
+> parties the day before a listed trial.
+
+Three sentences, three registers: **the statute**, **what the documents omit**,
+**what the documents contain**. The reader joins them.
+
+Note what is not said: that the report writer breached s.60B. The object binds
+the court's construction of the Part; whether it binds a report writer directly
+is an argument, not a fact. The page states the object and the omission and stops.
+
+⚠️ **VERIFY the year range 2022–24.** I placed the bead between Family Court
+(2021) and Public healthcare (2023) to keep the chain chronological, and widened
+it to 2024 to cover the report released the day before trial. If there was only
+one report, correct it to that year.
