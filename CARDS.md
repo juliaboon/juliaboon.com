@@ -2,6 +2,9 @@
 
 ## The page
 
+Three views: **Above** the structure · **Below** the record · **Across** the sequence.
+
+
 ```
    ABOVE — the constitutional diagram          full-bleed
    Crown → Parliament · Cabinet · Courts
@@ -82,3 +85,27 @@ treat the URL itself as the access control until after 13 October.
 `/documents/` — PDFs linked from section pages.
 
 Section pages are intentionally blank pending the filings.
+
+---
+
+## ACROSS — the sequence
+
+Three subjects, each carried from one institution to the next over seven years.
+
+| Chain | Beads |
+|---|---|
+| **Protection** 2019–2026 | Police → Child protection → Family Court → Public healthcare → Executive tribunals |
+| **The assets** 2020–2026 | Police → Single expert valuation → Accounting body → Corporate regulator → Ombudsman |
+| **Representation** 2021–2026 | Solicitors → Legal services commissioners → Costs assessment |
+
+**Visual grammar:** institutions are boxes; what followed sits in the gap
+between them, unboxed and unattributed, because it belongs to no one. Each bead
+carries its year and its branch colour, so the reader can see a subject crossing
+from executive to judicial and back.
+
+**No causal claim is made.** The note above the chains says so explicitly:
+*"only the order in which things happened."* A reader draws the inference; the
+page does not assert it. That is both safer and more persuasive.
+
+To add a bead: copy a `<li class="bead">` and the `<li class="link">` before it.
+Colour is set per bead with `style="--c:#…"` so a chain can cross branches.

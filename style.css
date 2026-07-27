@@ -1,19 +1,13 @@
 /* juliaboon.com
-   Palette   paper #FBFBF9 · ink #14171A · rule #DFE1E0 · mute #5E6672 · petrol #1B3A57
-   Type      display: Iowan Old Style / Palatino / Georgia
-             body:    system sans
-             docket:  system mono  ← the signature
-   Structure a register: date column left, matter right, hairline between.
+   paper #FBFBF9 · ink #14171A · rule #DFE1E0 · mute #5E6672 · petrol #1B3A57
+   display: Iowan Old Style / Palatino / Georgia
+   body:    system sans
+   mono:    system mono — every reference, year and role
+   One container width. No transforms. Everything lines up on one measure.
 */
 
 :root{
-  --paper:#FBFBF9;
-  --ink:#14171A;
-  --rule:#DFE1E0;
-  --mute:#5E6672;
-  --petrol:#1B3A57;
-  --measure:34rem;
-
+  --paper:#FBFBF9; --ink:#14171A; --rule:#DFE1E0; --mute:#5E6672; --petrol:#1B3A57;
   --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
@@ -22,16 +16,12 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:17px;
-  line-height:1.62;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.62;
   -webkit-font-smoothing:antialiased;
 }
 
-.inner{width:min(100% - 3rem, 60rem);margin-inline:auto}
+.hold{width:min(100% - 2.5rem, 78rem);margin-inline:auto}
 
 /* ---------- masthead ---------- */
 .masthead{
@@ -40,183 +30,38 @@ body{
   margin-bottom:clamp(2rem,5vw,3.5rem);
 }
 .masthead h1{
-  font-family:var(--display);
-  font-weight:400;
-  font-size:clamp(2.6rem,8.5vw,5.2rem);
-  line-height:.95;
-  letter-spacing:-.015em;
-  margin:0;
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.6rem,8.5vw,5.2rem);line-height:.95;
+  letter-spacing:-.015em;margin:0;
 }
 .standfirst{
-  font-family:var(--mono);
-  font-size:.72rem;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--petrol);
-  margin:.9rem 0 0;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--petrol);margin:.9rem 0 0;
 }
 
-/* ---------- statement ---------- */
-.statement{max-width:none;text-align:center;margin-bottom:clamp(2.5rem,6vw,4rem);
-  position:relative;left:50%;transform:translateX(-50%);width:min(100vw - 2.5rem, 78rem)}
+/* ---------- text helpers ---------- */
+.centred{text-align:center}
+.note{font-size:.9rem;color:var(--mute);max-width:52rem;margin:-.2rem auto 2.1rem;text-align:center}
+.small{font-size:.78rem;color:var(--mute);font-style:italic;max-width:32rem;
+  margin:.7rem auto 0;text-align:center}
+
+.statement{text-align:center;margin-bottom:clamp(2.5rem,6vw,4rem)}
 .statement p{margin:0 auto .9rem;max-width:52rem}
 .statement p:last-child{
-  font-family:var(--display);
-  font-size:1.16rem;
-  font-style:italic;
-  color:var(--petrol);
-  margin-top:1.4rem;
+  font-family:var(--display);font-size:1.16rem;font-style:italic;
+  color:var(--petrol);margin-top:1.4rem;
 }
 
-/* ---------- section labels ---------- */
 .section-label{
-  font-family:var(--mono);
-  font-size:.68rem;
-  font-weight:600;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--mute);
-  margin:0 0 1.2rem;
-  padding-bottom:.55rem;
+  font-family:var(--mono);font-size:.68rem;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--mute);
+  text-align:center;margin:0 0 1.3rem;padding-bottom:.6rem;
   border-bottom:1px solid var(--rule);
 }
-
-/* ---------- the register ---------- */
-.register{list-style:none;margin:0 0 clamp(3rem,7vw,4.5rem);padding:0}
-
-.entry{
-  display:grid;
-  grid-template-columns:7.5rem 1fr;
-  gap:0 2rem;
-  padding:1.6rem 0;
-  border-bottom:1px solid var(--rule);
-}
-.entry:first-child{padding-top:.4rem}
-
-.when time{
-  display:block;
-  font-family:var(--mono);
-  font-size:.82rem;
-  line-height:1.35;
-  color:var(--petrol);
-  padding-top:.42rem;
-}
-.when time span{display:block;color:var(--mute)}
-
-.what h3{
-  font-family:var(--display);
-  font-weight:400;
-  font-size:clamp(1.35rem,2.6vw,1.72rem);
-  line-height:1.24;
-  letter-spacing:-.01em;
-  margin:0 0 .55rem;
-  max-width:32ch;
-}
-.dek{
-  margin:0 0 .85rem;
-  max-width:var(--measure);
-  color:#2C3136;
-  font-size:.965rem;
-  line-height:1.58;
-}
-.docket{
-  font-family:var(--mono);
-  font-size:.735rem;
-  letter-spacing:.03em;
-  color:var(--mute);
-  margin:0;
-}
-.hold{
-  color:var(--petrol);
-  border-bottom:1px solid currentColor;
-  padding-bottom:1px;
-}
-
-/* ---------- matters ---------- */
-.matters{list-style:none;margin:0 0 clamp(3rem,7vw,4.5rem);padding:0}
-.matters li{
-  display:grid;
-  grid-template-columns:1fr auto auto;
-  gap:1.4rem;
-  align-items:baseline;
-  padding:.72rem 0;
-  border-bottom:1px solid var(--rule);
-}
-.matters .forum{font-size:.95rem}
-.matters .ref,.matters .state{
-  font-family:var(--mono);
-  font-size:.72rem;
-  letter-spacing:.03em;
-  color:var(--mute);
-}
-.matters .state{color:var(--petrol);min-width:5.5rem;text-align:right}
-
-/* ---------- colophon + footer ---------- */
-.colophon{margin-bottom:clamp(3rem,7vw,4.5rem)}
-.colophon .inner{text-align:center}
-.colophon p{margin:0 auto .9rem;font-size:.985rem;max-width:48rem}
 
 a{color:var(--petrol);text-decoration:none;border-bottom:1px solid var(--rule)}
 a:hover{border-bottom-color:var(--petrol)}
 a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:2px}
-
-footer{
-  border-top:1px solid var(--ink);
-  padding:1.4rem 0 4rem;
-}
-footer p{
-  font-family:var(--mono);
-  font-size:.7rem;
-  line-height:1.75;
-  letter-spacing:.02em;
-  color:var(--mute);
-  max-width:46rem;
-  margin:0;
-}
-
-/* ---------- entrance ---------- */
-@media(prefers-reduced-motion:no-preference){
-  .entry,.statement,.matters li{
-    animation:rise .55s cubic-bezier(.2,.7,.3,1) backwards;
-  }
-  .statement{animation-delay:.04s}
-  .entry:nth-child(1){animation-delay:.10s}
-  .entry:nth-child(2){animation-delay:.16s}
-  .entry:nth-child(3){animation-delay:.22s}
-  .entry:nth-child(4){animation-delay:.28s}
-  @keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-}
-
-/* ---------- narrow ---------- */
-@media(max-width:640px){
-  body{font-size:16px}
-  .entry{grid-template-columns:1fr;gap:.5rem}
-  .when time{padding-top:0;font-size:.75rem}
-  .when time span{display:inline;margin-left:.35em}
-  .matters li{grid-template-columns:1fr auto;row-gap:.2rem}
-  .matters .state{grid-column:2;text-align:right}
-  .matters .ref{grid-column:1;order:3}
-}
-
-/* ---------- print ---------- */
-@media print{
-  body{background:#fff;font-size:11pt}
-  .masthead{padding-top:0}
-  .entry,.matters li{break-inside:avoid}
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   FULL-BLEED — the diagram and its labels break the text column
-   ═══════════════════════════════════════════════════════════════ */
-.wide,.civics,.map-note,.hinge,.due,.due-note{
-  position:relative;left:50%;transform:translateX(-50%);
-  width:min(100vw - 2.5rem, 78rem);
-}
-.wide{text-align:center;padding-bottom:.6rem}
-.map-note{
-  font-size:.9rem;color:var(--mute);text-align:center;
-  margin:-.2rem auto 2.1rem;max-width:min(100vw - 2.5rem, 50rem);
-}
 
 /* ═══════════════════════════════════════════════════════════════
    ABOVE — the constitutional diagram
@@ -227,9 +72,9 @@ footer p{
   font-size:.78rem;line-height:1.5;color:var(--mute);
   max-width:46rem;margin:1rem auto 0;text-align:center;
 }
-.f-leg{fill:#C9D9EC}  .s-leg{stroke:#8FA9C4;stroke-width:1}
-.f-exe{fill:#F6E7C6}  .s-exe{stroke:#CDB183;stroke-width:1}
-.f-jud{fill:#F3D5D5}  .s-jud{stroke:#C99A9A;stroke-width:1}
+.f-leg{fill:#C9D9EC}   .s-leg{stroke:#8FA9C4;stroke-width:1}
+.f-exe{fill:#F6E7C6}   .s-exe{stroke:#CDB183;stroke-width:1}
+.f-jud{fill:#F3D5D5}   .s-jud{stroke:#C99A9A;stroke-width:1}
 .f-white{fill:#FFFFFF} .s-ink{stroke:#14171A;stroke-width:1.1}
 .civics .lbl{font-family:var(--body);font-size:11.5px;fill:#14171A;text-anchor:middle}
 .civics .hd{font-family:var(--display);font-size:14.5px;fill:#14171A;text-anchor:middle}
@@ -240,29 +85,23 @@ footer p{
 /* ═══════════════════════════════════════════════════════════════
    THE HINGE
    ═══════════════════════════════════════════════════════════════ */
-.hinge{width:1px;height:1.9rem;background:var(--rule);left:50%;transform:translateX(-50%)}
+.hinge{width:1px;height:1.9rem;margin:0 auto;background:var(--rule)}
 .due{
-  width:max-content;border:1px solid var(--rule);border-radius:2rem;
-  padding:.55rem 1.9rem;background:var(--paper);
-  left:50%;transform:translateX(-50%);
+  width:max-content;margin:0 auto;background:var(--paper);
+  border:1px solid var(--rule);border-radius:2rem;padding:.55rem 1.9rem;
 }
 .due span{
   font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;
   text-transform:uppercase;color:var(--mute);
-}
-.due-note{
-  font-size:.78rem;color:var(--mute);text-align:center;font-style:italic;
-  max-width:32rem;margin:.7rem auto 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════
    BELOW — the record
    ═══════════════════════════════════════════════════════════════ */
 .mirror{
-  position:relative;left:50%;transform:translateX(-50%);width:min(100vw - 2.5rem, 78rem);
   display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:0 1.6rem;
   align-items:start;border-top:1px solid var(--rule);
-  margin-bottom:clamp(2.5rem,6vw,3.5rem);
+  margin-bottom:clamp(2.8rem,6vw,4rem);
 }
 .col{position:relative;padding-top:1.7rem}
 .col::before{content:"";position:absolute;top:0;left:50%;width:1px;height:1.7rem;background:var(--c)}
@@ -271,7 +110,6 @@ footer p{
   text-transform:uppercase;color:var(--c);filter:brightness(.7);
   text-align:center;margin:0 0 1rem;
 }
-
 .ag{
   position:relative;display:block;background:#fff;
   border:1px solid var(--rule);border-left:3px solid var(--c);border-radius:2px;
@@ -287,19 +125,77 @@ footer p{
 .ag .fail{display:block;font-size:.755rem;line-height:1.44;color:#42474C;margin-bottom:.4rem}
 .ag em{display:block;font-style:normal;font-family:var(--mono);font-size:.585rem;
   letter-spacing:.03em;color:var(--mute)}
-
-/* nested under the body above it */
-.ag.sub{
-  margin-left:1.15rem;margin-top:-.15rem;
-  border-left-width:1px;background:#FDFDFC;
-}
-.ag.sub::before{
-  content:"";position:absolute;left:-1.15rem;top:1.05rem;
-  width:1.15rem;height:1px;background:var(--rule);
-}
+.ag.sub{margin-left:1.15rem;margin-top:-.15rem;border-left-width:1px;background:#FDFDFC}
+.ag.sub::before{content:"";position:absolute;left:-1.15rem;top:1.05rem;
+  width:1.15rem;height:1px;background:var(--rule)}
 .ag.sub b{font-size:.87rem}
 .ag.sub .fail{font-size:.72rem}
 
+/* ═══════════════════════════════════════════════════════════════
+   ACROSS — the sequence
+   Institutions are boxes. What followed sits in the gap between
+   them, unboxed, because it belongs to no one.
+   ═══════════════════════════════════════════════════════════════ */
+.cascades{margin:0 0 clamp(3rem,7vw,4.5rem)}
+.cascade{padding:1.3rem 0;border-top:1px solid var(--rule)}
+.cascade:last-child{border-bottom:1px solid var(--rule)}
+.cascade-head{
+  font-family:var(--display);font-weight:400;font-size:1.12rem;
+  margin:0 0 .95rem;display:flex;align-items:baseline;gap:.75rem;
+}
+.cascade-head span{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--mute);
+}
+.beads{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0}
+.bead{
+  flex:0 0 auto;width:8.6rem;background:#fff;
+  border:1px solid var(--rule);border-top:3px solid var(--c);border-radius:2px;
+  padding:.5rem .6rem;text-align:center;
+}
+.bead .yr{
+  display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;
+  color:var(--c);filter:brightness(.6);margin-bottom:.2rem;
+}
+.bead b{display:block;font-family:var(--display);font-weight:400;
+  font-size:.85rem;line-height:1.2}
+.link{
+  flex:1 1 0;min-width:0;position:relative;z-index:1;
+  font-size:.665rem;line-height:1.3;color:var(--mute);
+  text-align:center;padding:0 .55rem;
+}
+.link::before{
+  content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:var(--rule);z-index:-1;
+}
+.link::after{
+  content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:0;height:0;border-left:4px solid #B9BEC4;
+  border-top:3px solid transparent;border-bottom:3px solid transparent;
+}
+.link span,.link{background-color:var(--paper)}
+
+/* ---------- colophon + footer ---------- */
+.colophon{margin-bottom:clamp(3rem,7vw,4.5rem)}
+.colophon p{margin:0 auto .9rem;font-size:.985rem;max-width:48rem}
+
+footer{border-top:1px solid var(--ink);padding:1.4rem 0 4rem;text-align:center}
+footer p{
+  font-family:var(--mono);font-size:.7rem;line-height:1.75;letter-spacing:.02em;
+  color:var(--mute);margin:0;
+}
+footer .year{margin-top:.9rem}
+
+/* ═══════════════════════════════════════════════════════════════
+   NARROW
+   ═══════════════════════════════════════════════════════════════ */
+@media(max-width:980px){
+  .beads{flex-wrap:wrap;gap:.4rem}
+  .bead{width:calc(50% - .8rem)}
+  .link{flex:0 0 100%;text-align:left;padding:.15rem 0 .15rem 1rem;background:none}
+  .link::before{display:none}
+  .link::after{left:.15rem;right:auto;border-left:3px solid transparent;
+    border-right:3px solid transparent;border-top:4px solid #B9BEC4;border-bottom:0}
+}
 @media(max-width:900px){
   .mirror{grid-template-columns:1fr 1fr;gap:1.8rem 1rem;border-top:0}
   .col{padding-top:0;border-top:2px solid var(--c)}
@@ -307,19 +203,24 @@ footer p{
   .col-head{text-align:left;margin-top:.7rem}
 }
 @media(max-width:620px){
+  body{font-size:16px}
   .mirror{grid-template-columns:1fr;gap:1.7rem}
+  .bead{width:100%}
   .ag b{font-size:1.05rem}
   .ag .fail{font-size:.85rem}
-  .civics figcaption,.statement,.map-note{text-align:left}
-  .colophon .inner{text-align:left}
+  .statement,.note,.small,.civics figcaption,.colophon,.centred{text-align:left}
+  .statement p,.note,.small,.colophon p{margin-inline:0}
 }
-@media print{.mirror{grid-template-columns:1fr 1fr}.ag{break-inside:avoid}}
-
-footer .year{font-family:var(--mono);font-size:.7rem;color:var(--mute);margin-top:.9rem}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .mirror{grid-template-columns:1fr 1fr}
+  .ag,.cascade,.bead{break-inside:avoid}
+}
 
 /* ═══════════════════════════════════════════════════════════════
    SECTION PAGES
    ═══════════════════════════════════════════════════════════════ */
+.inner{width:min(100% - 2.5rem, 60rem);margin-inline:auto}
 .section .masthead{border-bottom:3px solid var(--c)}
 .section .masthead h1{font-size:clamp(2rem,5.5vw,3.4rem);margin-top:.5rem}
 .back{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;
@@ -331,5 +232,11 @@ footer .year{font-family:var(--mono);font-size:.7rem;color:var(--mute);margin-to
 .findings{list-style:none;margin:0 0 clamp(2.5rem,6vw,3.5rem);padding:0;max-width:44rem}
 .findings li{padding:.7rem 0 .7rem 1.1rem;border-bottom:1px solid var(--rule);
   border-left:3px solid var(--c);font-size:.95rem;line-height:1.55}
+.matters{list-style:none;margin:0 0 clamp(3rem,7vw,4.5rem);padding:0}
+.matters li{display:grid;grid-template-columns:1fr auto auto;gap:1.4rem;
+  align-items:baseline;padding:.72rem 0;border-bottom:1px solid var(--rule)}
+.matters .forum{font-size:.95rem}
+.matters .ref,.matters .state{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+.matters .state{color:var(--petrol);min-width:5.5rem;text-align:right}
 .return{margin:clamp(2.5rem,6vw,3.5rem) 0 0}
 .return a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em}
