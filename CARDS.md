@@ -3,88 +3,82 @@
 ## The page
 
 ```
-   ┌──────────────────────────────────────────────┐
-   │  ABOVE — the constitutional diagram          │
-   │  Crown → Parliament · Cabinet · Courts       │
-   │  all converging on THE LAW                   │
-   └──────────────────┬───────────────────────────┘
-                      │
-              ┌───────▼───────┐
-              │  DUE PROCESS  │   grey, unlinked, humble
-              └───────┬───────┘
-                      │
-   ┌──────────────────▼───────────────────────────┐
-   │  BELOW — the record                          │
-   │  Legislative · Executive · Judicial          │
-   │  same three positions, mirrored              │
-   ├──────────────────────────────────────────────┤
-   │  OUTSIDE THE STRUCTURE  (dashed, no fill)    │
-   │  professions that answer to no branch        │
-   └──────────────────────────────────────────────┘
+   ABOVE — the constitutional diagram          full-bleed
+   Crown → Parliament · Cabinet · Courts
+   all converging on THE LAW
+                  │
+          ┌───────▼───────┐
+          │  DUE PROCESS  │   grey, unlinked, humble
+          └───────┬───────┘
+                  │
+   BELOW — the record
+   Legislative · Executive · Judicial
+   same three positions, mirrored
 ```
 
-The upper diagram is fixed civics — it never needs editing.
-The lower half grows as material is added.
+Everything sits under the law and belongs to one of the three branches.
+There is no "outside".
 
-## Palette — constitutional, not decorative
+## Palette
 
-| Power | Fill | Line | Used for |
-|---|---|---|---|
-| Legislative | `#C9D9EC` | `#8FA9C4` | Parliament, above and below |
-| Executive | `#F6E7C6` | `#CDB183` | Cabinet, public service, agencies |
-| Judicial | `#F3D5D5` | `#C99A9A` | Courts, above and below |
-| Outside | none | `#8A9099` dashed | professions — no counterpart above |
-
-Cabinet is drawn in **both** legislative and executive shading, because ministers
-are drawn from Parliament and sit in it. That fusion is the design.
-
-The professional bodies are drawn with **no fill and a dashed edge**: they appear
-nowhere in the diagram above.
-
-## Cards below
-
-| Column | Card | Folder |
+| Power | Fill | Line |
 |---|---|---|
-| Legislative | Parliament | `/parliament/` |
-| Executive | **Public healthcare** ● | `/healthcare/` |
-| Executive | Health records | `/healthcare/#records` |
-| Executive | Police & criminal | `/police/` |
-| Executive | Executive tribunals | `/tribunals/` |
-| Executive | Corporate regulators | `/corporate/` |
-| Executive | Oversight bodies | `/oversight/` |
-| Judicial | Family Court | `/family-court/` |
-| Judicial | Supreme Court of NSW | `/supreme-court/` |
-| Judicial | Judicial conduct | `/judicial-conduct/` |
-| Judicial | Access to the court | `/access-to-justice/` |
-| Outside | The legal profession | `/legal-profession/` |
-| Outside | Health practitioner registration | `/registration/` |
-| Outside | Accounting & valuation | `/accounting/` |
+| Legislative | `#C9D9EC` | `#8FA9C4` |
+| Executive | `#F6E7C6` | `#CDB183` |
+| Judicial | `#F3D5D5` | `#C99A9A` |
+
+Cabinet is shaded in both legislative and executive because ministers are drawn
+from Parliament and sit in it.
+
+## Cards
+
+| Column | Card | Nested under | Folder |
+|---|---|---|---|
+| Legislative | Parliament | — | `/parliament/` |
+| Executive | Public healthcare | — | `/healthcare/` |
+| Executive | Health records | healthcare | `/healthcare/#records` |
+| Executive | Practitioner registration | healthcare | `/registration/` |
+| Executive | Police & criminal | — | `/police/` |
+| Executive | Executive tribunals | — | `/tribunals/` |
+| Executive | Corporate regulators | — | `/corporate/` |
+| Executive | Accounting & valuation | corporate | `/accounting/` |
+| Executive | Oversight bodies | — | `/oversight/` |
+| Judicial | Family Court | — | `/family-court/` |
+| Judicial | Supreme Court of NSW | — | `/supreme-court/` |
+| Judicial | Judicial conduct | — | `/judicial-conduct/` |
+| Judicial | Access to the court | — | `/access-to-justice/` |
+| Judicial | The legal profession | access to the court | `/legal-profession/` |
+
+Nested cards use `class="ag sub"` and draw their own tick to the parent.
 
 ## Card anatomy
 
-Every card below the hinge carries four things, in this order:
-
 1. **Body** — the institution
-2. **Role** — in monospace, in the branch colour, never a name
+2. **Role** — monospace, branch colour, never a name *(top-level cards only)*
 3. **Decision** — what was done, factually
-4. **Date range** — in monospace
+4. **Years** — no exact dates on the public page
 
-Add one by copying an `.ag` block into the right `.col`. It inherits the
-branch colour automatically.
+## Standing rules
 
-## Naming
+**No individual is named anywhere.** Roles and decisions only. Live proceedings
+run to 13 October; Australian defamation law puts the burden of proving truth on
+the publisher; and naming people converts a structural argument into a personal
+one. Names belong in filings, where privilege protects them.
 
-No individual is named anywhere. Roles and decisions only.
+**Years, not dates.** Precision belongs in the filings.
 
-Live proceedings run to 13 October. Australian defamation law puts the burden
-of proving truth on the publisher, at the publisher's cost. And naming people
-converts a structural argument into a personal one, which is weaker.
+**The record is stated as partial** in the note above the cards, so an incomplete
+picture is not mistaken for the whole one.
 
-Names belong in filings, where they are protected by privilege.
+**The healthcare card says "a patient represented by the author"** so no reader
+infers the author was the person detained.
 
 ## Folders
 
-`/public_mental_health/` — holds the two manifestos. **Not wired to any page.**
-For direct sharing only. Wire it after 13 October if at all.
+`/public_mental_health/` — the two manifestos. **Not linked from any page.**
+For direct sharing only. Publicly readable by anyone who guesses the path, so
+treat the URL itself as the access control until after 13 October.
 
 `/documents/` — PDFs linked from section pages.
+
+Section pages are intentionally blank pending the filings.
