@@ -123,6 +123,11 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 .ag .role{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.02em;
   color:var(--c);filter:brightness(.62);margin-bottom:.34rem}
 .ag .fail{display:block;font-size:.755rem;line-height:1.44;color:#42474C;margin-bottom:.4rem}
+.ag .coda{
+  display:block;font-family:var(--display);font-style:italic;
+  font-size:.88rem;color:var(--c);filter:brightness(.62);
+  margin:.15rem 0 .5rem;
+}
 .ag em{display:block;font-style:normal;font-family:var(--mono);font-size:.585rem;
   letter-spacing:.03em;color:var(--mute)}
 .ag.sub{margin-left:1.15rem;margin-top:-.15rem;border-left-width:1px;background:#FDFDFC}

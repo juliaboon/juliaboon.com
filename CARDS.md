@@ -295,3 +295,46 @@ matter of record and needs no adjective.
 ⚠️ **VERIFY**: the fifteen-month figure, the filing date of the s.79A
 application, and that the police investigation was on foot on both the order date
 and the enforcement date.
+
+---
+
+## Column order is an argument
+
+**Executive** reads: Police → Child protection → Public healthcare → Health
+records → Practitioner registration → Executive tribunals → Child support →
+Corporate regulators → Accounting → Oversight.
+
+Police sit at the top because everything else follows from what was not
+investigated. Healthcare sits between police and the tribunals because that is
+where the sequence went. Order is not alphabetical and not chronological; it is
+the order in which the failures compound.
+
+## The one rhetorical line on the site
+
+Parliament's card ends with a `.coda`:
+
+> *Deafening silence.*
+
+It is set apart from the factual span, in the branch colour, italic. It works
+only because nothing else on the page does this. Two of them and the record
+becomes commentary. Keep it to one.
+
+## ⚠️ Legal aid — a claim I did not write
+
+You said: *"even if means test fails it is in the law that all DFV-involving
+matters need to be taken."*
+
+The card says instead:
+
+> Family violence and coercive control were raised throughout and are not
+> addressed in the reasons.
+
+That is checkable from the refusal letters and cannot be argued with. The
+stronger version — that a legal obligation was breached — needs the provision
+named. Legal Aid NSW policy does contain family violence and special
+circumstances provisions, and the means test can be varied, but I have not read
+the guideline and will not put a statutory claim on a public page from memory.
+
+**Send me the provision and I will cite it precisely.** With a guideline number
+the sentence becomes: *"Guideline X requires … The reasons do not refer to it."*
+That is much stronger than the current wording, and it is unanswerable.
