@@ -104,15 +104,24 @@ Three subjects, each carried from one institution to the next over seven years.
 - **Links** are what followed — unboxed, in the gap between beads, because
   they belong to no one.
 - **Above a bead ↑** — a body that *supervises* it. Regulators sit above what
-  they regulate.
+  they regulate. A stack can hold two: costs assessment above the legal services
+  commissioners, both above the solicitors.
 - **Below a bead ↓** — a body *appointed by* it. The independent children's
   lawyer hangs from the Family Court because the appointment is the court's.
 - **⇅ double arrow** — a closed loop: a complaint returned to the body it was
   made about. Used once, for the police oversight commission, because the
   documents establish it precisely.
 
-Main beads sit on one baseline across each chain; appointees hang below without
-lifting their parent off the line.
+**Main beads align on their top edge** across each chain, whatever hangs above or
+below them, and every connector rule sits on that same line. Supervisors and
+appointees are absolutely positioned so they never shift the row.
+
+Each chain carries its own `--pad` on the `<section>`, sized to whatever is
+tallest above its beads. If you add a supervisor or lengthen a link, raise it.
+
+**Link text is short by rule** — six to eight words. The connector says what
+followed; the card below says how. Long link text starves the columns and pushes
+the diagram apart.
 
 Two branches at present:
 
@@ -264,3 +273,25 @@ delivery.
 s.102NA applied, (b) the application and order removing it in February 2024, and
 (c) the transcript or orders of the listed trial date. The page currently asserts
 all three. Each should rest on a document, not a recollection.
+
+---
+
+## Family Court — what the card now says
+
+> Proceedings since 2021. Financial disclosure incomplete throughout;
+> applications to compel it did not result in enforcement. Final orders were made
+> in 2024 while a police investigation was on foot, and enforced in 2025 while it
+> remained on foot. An application to set the orders aside under s.79A(1) of the
+> Family Law Act, on the ground that they were obtained by fraud, has not been
+> listed for a threshold hearing in over fifteen months, while an enforcement
+> hearing was listed ahead of it. The harm is not reversible and any later relief
+> would be nugatory.
+
+Note the construction: **"on the ground that they were obtained by fraud"**
+describes the application. It does not assert the fraud as established. The
+listing sequence — enforcement heard, s.79A unlisted for fifteen months — is a
+matter of record and needs no adjective.
+
+⚠️ **VERIFY**: the fifteen-month figure, the filing date of the s.79A
+application, and that the police investigation was on foot on both the order date
+and the enforcement date.

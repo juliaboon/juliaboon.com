@@ -146,9 +146,9 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 .cascade-head span{
   font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--mute);
 }
-.beads{list-style:none;margin:0;padding:0;display:flex;align-items:flex-end;gap:0}
+.beads{list-style:none;margin:0;padding:var(--pad,6rem) 0 0;display:flex;align-items:flex-start;gap:0}
 
-.stack{position:relative;flex:0 0 auto;width:9.6rem;justify-content:flex-end;display:flex;flex-direction:column}
+.stack{position:relative;flex:0 0 auto;width:9rem;display:flex;flex-direction:column}
 .bead{
   background:#fff;border:1px solid var(--rule);border-top:3px solid var(--c);
   border-radius:2px;padding:.5rem .6rem;text-align:center;
@@ -170,9 +170,11 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
    body it was made about.
    ─────────────────────────────────────────────────────────────── */
 .over,.under{display:flex;flex-direction:column;align-items:center;text-align:center}
-/* the appointee hangs below without lifting its parent off the line */
+/* supervisors float above and appointees below, so every main bead
+   sits on the same top line regardless of what hangs off it */
+.over{position:absolute;bottom:100%;left:0;right:0}
 .under{position:absolute;top:100%;left:0;right:0}
-.cascade.has-under{padding-bottom:8.6rem}
+.cascade.has-under{padding-bottom:9.6rem}
 .over .bead,.under .bead{width:100%;border-top-width:2px;opacity:.96}
 .over .bead b,.under .bead b{font-size:.76rem}
 
@@ -206,17 +208,20 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 }
 
 .link{
-  flex:1 1 0;min-width:0;position:relative;z-index:1;margin-bottom:1.45rem;
-  font-size:.665rem;line-height:1.3;color:var(--mute);text-align:center;padding:0 .55rem;
-  background-color:var(--paper);
+  flex:1 1 0;min-width:0;position:relative;align-self:flex-start;
+  height:3.1rem;
 }
-.link::before{
-  content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule);z-index:-1;
+.link::before{                     /* the rule, level with the brow */
+  content:"";position:absolute;left:0;right:0;top:1.5px;height:1px;background:var(--rule);
 }
-.link::after{
-  content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
+.link::after{                      /* arrowhead, on the same line */
+  content:"";position:absolute;right:0;top:1.5px;transform:translateY(-50%);
   width:0;height:0;border-left:4px solid #B9BEC4;
   border-top:3px solid transparent;border-bottom:3px solid transparent;
+}
+.link span{                        /* the words sit above the rule */
+  position:absolute;left:.2rem;right:.55rem;bottom:calc(100% + .12rem);
+  text-align:center;font-size:.665rem;line-height:1.3;color:var(--mute);
 }
 
 /* ---------- colophon + footer ---------- */
@@ -236,9 +241,12 @@ footer .year{margin-top:.9rem}
 @media(max-width:1080px){
   .beads{flex-wrap:wrap;gap:.45rem}
   .stack{width:calc(50% - .8rem)}
-  .under{position:static}
+  .over,.under{position:static}
   .cascade.has-under{padding-bottom:1.3rem}
-  .link{flex:0 0 100%;text-align:left;padding:.15rem 0 .15rem 1rem;margin-bottom:0;background:none}
+  .beads{padding-top:0}
+  .link{height:auto}
+  .link span{position:static;text-align:left;display:block}
+  .link{flex:0 0 100%;padding:.15rem 0 .15rem 1rem;background:none}
   .link::before{display:none}
   .link::after{left:.15rem;right:auto;border-left:3px solid transparent;
     border-right:3px solid transparent;border-top:4px solid #B9BEC4;border-bottom:0}
