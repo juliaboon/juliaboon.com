@@ -435,3 +435,42 @@ sentence a valuer's insurer could act on.
 
 ⚠️ **VERIFY**: the $7 million figure and where it was sworn; the Valuer General
 figures for the relevant years; and the date the bankruptcy documents were served.
+
+---
+
+## Terminal arrows
+
+Each chain now ends in a `<li class="link end">` — an arrow with a comment and
+**nothing after it**. The arrow points into empty space at the edge of the
+container. That is the design, not a rendering fault: the sequence runs out of
+institutions before it runs out of matter.
+
+| Chain | Terminus |
+|---|---|
+| Not in the best interest of children | Mental Health and Guardianship Act conditions not established |
+| Non-equitable | no outcome |
+| Legal protections | three applications, no outcome |
+
+### The wording of the first one
+
+You said *"guardianship/Mental Health Acts laws breached."*
+
+The page says **"conditions not established."**
+
+Same claim, reviewable form. "Breached" asserts a legal conclusion against a
+tribunal whose decisions are on foot and subject to review. "Not established"
+says the record does not show the statutory conditions were met — which is
+exactly the argument in the manifesto: s.12(1)(b) requires an opinion that no
+less restrictive care consistent with *safe and effective* care is available, and
+that opinion cannot be formed on a record in which nothing was measured.
+
+It is the same point, and it survives being read by the tribunal it concerns.
+
+### Layout consequence
+
+Adding a sixth connector to the six-bead chains crushed the columns at 1200px.
+Two adjustments: stacks narrowed from 9rem to **8.2rem**, and the wrap threshold
+raised from 1080px to **1240px**, so the long chains break to two rows before
+they get squeezed rather than after.
+
+Verified clean at 1600, 1440, 1300, 1240, 1200, 1080, 900, 620 and 390px.

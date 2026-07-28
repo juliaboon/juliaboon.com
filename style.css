@@ -153,7 +153,7 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 }
 .beads{list-style:none;margin:0;padding:var(--pad,6rem) 0 0;display:flex;align-items:flex-start;gap:0}
 
-.stack{position:relative;flex:0 0 auto;width:9rem;display:flex;flex-direction:column}
+.stack{position:relative;flex:0 0 auto;width:8.2rem;display:flex;flex-direction:column}
 .bead{
   background:#fff;border:1px solid var(--rule);border-top:3px solid var(--c);
   border-radius:2px;padding:.5rem .6rem;text-align:center;
@@ -224,8 +224,9 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
   width:0;height:0;border-left:4px solid #B9BEC4;
   border-top:3px solid transparent;border-bottom:3px solid transparent;
 }
+.link.end span{color:#42474C}      /* the chain ends in an arrow pointing nowhere */
 .link span{                        /* the words sit above the rule */
-  position:absolute;left:.2rem;right:.55rem;bottom:calc(100% + .12rem);
+  position:absolute;left:.15rem;right:.5rem;bottom:calc(100% + .12rem);
   text-align:center;font-size:.665rem;line-height:1.3;color:var(--mute);
 }
 
@@ -243,7 +244,7 @@ footer .year{margin-top:.9rem}
 /* ═══════════════════════════════════════════════════════════════
    NARROW
    ═══════════════════════════════════════════════════════════════ */
-@media(max-width:1080px){
+@media(max-width:1240px){
   .beads{flex-wrap:wrap;gap:.45rem}
   .stack{width:calc(50% - .8rem)}
   .over,.under{position:static}
