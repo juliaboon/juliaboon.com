@@ -470,6 +470,21 @@
 
   </div>
 
+  <h2 class="section-label">The cost</h2>
+  <p class="centred note">Costs estimates are filed by both parties in the Federal Circuit and
+     Family Court at regular intervals. These are the figures on that material.</p>
+
+  <div class="ledger">
+    <div class="lrow"><span class="lk">Legal costs incurred by the author</span><span class="lv">&asymp; $600,000</span></div>
+    <div class="lrow"><span class="lk">Legal costs incurred by the other party</span><span class="lv">&asymp; $800,000</span></div>
+    <div class="lrow"><span class="lk">Value attributed in those proceedings to the business at the centre of the property dispute</span><span class="lv">$100,000</span></div>
+    <div class="lrow"><span class="lk">Applications for legal aid</span><span class="lv">4</span></div>
+    <div class="lrow"><span class="lk">Grants of legal aid</span><span class="lv">nil</span></div>
+    <div class="lrow"><span class="lk">Family home listed for sale to meet the other party&rsquo;s costs</span><span class="lv">2025</span></div>
+  </div>
+  <p class="centred small">$1.4 million in legal costs, over a business those same proceedings
+     valued at $100,000.</p>
+
   <h2 class="section-label">About this record</h2>
   <section class="colophon centred">
     <p>This site exists because the documents kept outlasting the people reading them. Every entry
@@ -502,6 +517,60 @@
     if(window.ResizeObserver) new ResizeObserver(edges).observe(box);
     window.addEventListener('load',edges);
     edges();
+  });
+})();
+</script>
+
+<script>
+/* Sections open in place. Clicking a card never leaves the map, so an
+   accidental touch during a swipe costs nothing. Falls back to ordinary
+   navigation if the page cannot be fetched (e.g. opened from disk). */
+(function(){
+  var dlg=document.createElement('dialog');
+  dlg.className='peek';
+  dlg.innerHTML='<div class="peek-shell"><button class="peek-x" aria-label="Close">&times;</button>'+
+                '<div class="peek-body"></div></div>';
+  document.body.appendChild(dlg);
+  var body=dlg.querySelector('.peek-body');
+  dlg.querySelector('.peek-x').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+
+  function fill(html,url){
+    var doc=new DOMParser().parseFromString(html,'text/html');
+    var main=doc.querySelector('main');
+    if(!main) return false;
+    body.setAttribute('style',doc.body.getAttribute('style')||'');
+    body.innerHTML='';
+    var h1=doc.querySelector('.masthead h1'),
+        sf=doc.querySelector('.masthead .standfirst'),
+        bt=doc.querySelector('.masthead .branch-tag');
+    var head=document.createElement('header'); head.className='peek-head';
+    if(h1) head.appendChild(h1.cloneNode(true));
+    if(sf) head.appendChild(sf.cloneNode(true));
+    if(bt) head.appendChild(bt.cloneNode(true));
+    body.appendChild(head);
+    main.classList.remove('inner');
+    main.querySelectorAll('.return').forEach(function(n){n.remove();});
+    body.appendChild(main);
+    var more=document.createElement('p'); more.className='peek-more';
+    more.innerHTML='<a href="'+url+'">Open as a full page &rarr;</a>';
+    body.appendChild(more);
+    return true;
+  }
+
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('.ag, .twig, .node');
+    if(!a) return;
+    var href=a.getAttribute('href');
+    if(!href||/^(https?:|mailto:|#)/.test(href)) return;
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
+    e.preventDefault();
+    fetch(href).then(function(r){
+      if(!r.ok) throw 0; return r.text();
+    }).then(function(t){
+      if(!fill(t,href)) throw 0;
+      dlg.showModal(); body.scrollTop=0;
+    }).catch(function(){ location.href=href; });
   });
 })();
 </script>
