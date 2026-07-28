@@ -515,3 +515,39 @@ Tested both ways: a drag-then-click is suppressed; a tap without movement is not
 ### Print
 
 Edges hidden, scrollers set to `overflow:visible`, so the whole map prints.
+
+### Arrow lengths are locked below 1240px
+
+A flexible connector shrinks as the row narrows. Its label then wraps taller and
+taller, and a tall label collides with whatever is above it. That is what jams
+the maps on a phone.
+
+Below 1240px the connectors stop flexing and take a fixed length:
+
+```
+.stack { width: 7.8rem }      /* beads */
+.link  { flex: 0 0 8.4rem }   /* connectors — locked */
+```
+
+Every label then has the same width and the same shape, and the row simply gets
+longer and scrolls.
+
+**Clearance is set per chain**, because a chain carrying two stacked supervisors
+needs far more room above its beads than one carrying none — and every stack
+grows taller as the columns narrow:
+
+| Chain | pad above | pad below |
+|---|---|---|
+| Not in the best interest of children | 7.9rem | 10.1rem |
+| Non-equitable | 7.2rem | — |
+| Legal protections | 13.8rem | — |
+
+⚠️ **If you add a supervisor or lengthen a label, re-measure.** The values above
+are tuned to the current content at 390px. Raising `--pad` is harmless; leaving
+it too low causes the overlap.
+
+### Verified
+
+Swept at 1600, 1440, 1241, 1240, 1024, 768, 430, 390, 360 and 320px:
+no page overflow, bead tops aligned in every chain, and **zero collisions**
+between labels, supervisors, appointees, headings or the following chain.
