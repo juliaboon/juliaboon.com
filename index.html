@@ -32,6 +32,7 @@
   <h2 class="section-label">Above &mdash; the structure</h2>
 
   <figure class="civics">
+  <div class="swipe"><div class="scroll-x">
   <svg viewBox="0 0 1000 500" role="img" aria-label="The Australian constitutional structure: the Crown summons Parliament and appoints the Cabinet and the courts; Parliament passes bills, the public service carries out laws, the courts interpret them, all converging on the law.">
     <defs>
       <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -129,6 +130,7 @@
       <rect x="0" y="42" width="13" height="13" class="f-jud s-jud"/><text x="19" y="52" class="key-t">judicial</text>
     </g>
   </svg>
+  </div></div>
   <figcaption>Cabinet is shaded twice because it is both: ministers are drawn from Parliament and
     sit in it. That fusion is the design, not a defect. The question this record asks is what
     happens beneath it.</figcaption>
@@ -145,6 +147,7 @@
      others are brought on behalf of a person she represents. This record is partial and still
      being built.</p>
 
+  <div class="swipe"><div class="scroll-x">
   <div class="mirror">
 
     <section class="col" style="--c:#8FA9C4">
@@ -339,6 +342,7 @@
     </section>
 
   </div>
+  </div></div>
 
   <h2 class="section-label">Across &mdash; the sequence</h2>
   <p class="centred note">Three subjects, each carried from one institution to the next over seven
@@ -349,6 +353,7 @@
 
     <section class="cascade has-under" style="--pad:7.1rem">
       <h3 class="cascade-head">Not in the best interest of children<span>2019 &ndash; 2026</span></h3>
+      <div class="swipe"><div class="scroll-x">
       <ol class="beads">
         <li class="stack">
           <div class="over loop" style="--c:#CDB183">
@@ -384,10 +389,12 @@
         </li>
         <li class="link end"><span>seven months on &middot; Mental Health and Guardianship Act conditions not established</span></li>
       </ol>
+      </div></div>
     </section>
 
     <section class="cascade" style="--pad:5.6rem">
       <h3 class="cascade-head">Non-equitable<span>2017 &ndash; 2026</span></h3>
+      <div class="swipe"><div class="scroll-x">
       <ol class="beads">
         <li class="stack">
           <div class="bead" style="--c:#CDB183"><span class="yr">2017</span><b>Child&nbsp;support</b></div>
@@ -419,10 +426,12 @@
         </li>
         <li class="link end"><span>no outcome</span></li>
       </ol>
+      </div></div>
     </section>
 
     <section class="cascade" style="--pad:12.7rem">
       <h3 class="cascade-head">Legal protections<span>2021 &ndash; 2026</span></h3>
+      <div class="swipe"><div class="scroll-x">
       <ol class="beads">
         <li class="stack">
           <div class="over" style="--c:#C99A9A">
@@ -454,6 +463,7 @@
         </li>
         <li class="link end"><span>three applications, no outcome</span></li>
       </ol>
+      </div></div>
     </section>
 
   </div>
@@ -469,6 +479,32 @@
   </section>
 
 </main>
+
+<script>
+/* Swipeable maps: suppress navigation if the pointer moved, and show a
+   frosted edge only while there is more to scroll. */
+(function(){
+  document.querySelectorAll('.scroll-x').forEach(function(box){
+    var wrap=box.parentElement, x0=0, y0=0, moved=false;
+    box.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY;moved=false;},{passive:true});
+    box.addEventListener('pointermove',function(e){
+      if(Math.abs(e.clientX-x0)>7||Math.abs(e.clientY-y0)>7) moved=true;
+    },{passive:true});
+    box.addEventListener('click',function(e){
+      if(moved){e.preventDefault();e.stopPropagation();}
+    },true);
+    function edges(){
+      var more = box.scrollWidth - box.clientWidth;
+      wrap.classList.toggle('at-start', box.scrollLeft < 4);
+      wrap.classList.toggle('at-end',  more < 4 || box.scrollLeft >= more - 4);
+    }
+    box.addEventListener('scroll',edges,{passive:true});
+    if(window.ResizeObserver) new ResizeObserver(edges).observe(box);
+    window.addEventListener('load',edges);
+    edges();
+  });
+})();
+</script>
 
 <footer class="hold">
   <p>Documents on this site are published as filed or in redacted form. Roles and decisions are described;

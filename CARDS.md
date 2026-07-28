@@ -474,3 +474,44 @@ raised from 1080px to **1240px**, so the long chains break to two rows before
 they get squeezed rather than after.
 
 Verified clean at 1600, 1440, 1300, 1240, 1200, 1080, 900, 620 and 390px.
+
+---
+
+## Swipeable maps
+
+The maps no longer collapse on narrow screens. A sequence read top-to-bottom is
+not a sequence, so instead of stacking they scroll sideways.
+
+| Map | Minimum width | Behaviour |
+|---|---|---|
+| Constitutional diagram | 44rem | scales down to that, then scrolls |
+| The record (3 columns) | 52rem | three columns always, scrolls |
+| Each chain | content width | one row always, scrolls |
+
+Verified at 1440, 1024, 768, 390 and 320px: **no page-level horizontal overflow
+at any width, and no vertical clipping** — the supervisors above and appointees
+below each bead sit inside the scroll box, not outside it.
+
+### The frosted edge
+
+`.swipe::before` and `::after` are 2.6rem gradients with `backdrop-filter:
+blur(2px)`, masked to fade out, on rounded corners. They appear **only when
+there is more to scroll in that direction** — both hidden when the map fits, so
+the desktop view is untouched. Class toggling is done on scroll and on resize.
+
+### Why not hover popups
+
+On a touch device there is no hover. The first tap *becomes* the hover and the
+second activates — which is worse than the problem it would solve, and is a
+known accessibility trap.
+
+The accidental-navigation problem is solved directly instead: **if the pointer
+moves more than 7px between `pointerdown` and `click`, the click is cancelled**
+in the capture phase, before it reaches the card. Swipe as much as you like and
+nothing opens. A clean tap still works.
+
+Tested both ways: a drag-then-click is suppressed; a tap without movement is not.
+
+### Print
+
+Edges hidden, scrollers set to `overflow:visible`, so the whole map prints.

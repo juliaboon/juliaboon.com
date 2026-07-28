@@ -64,6 +64,51 @@ a:hover{border-bottom-color:var(--petrol)}
 a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:2px}
 
 /* ═══════════════════════════════════════════════════════════════
+   SWIPEABLE MAPS
+   The maps never stack. On a narrow screen they scroll sideways,
+   because a sequence read top-to-bottom stops being a sequence.
+   A frosted edge appears only while there is more to see.
+   ═══════════════════════════════════════════════════════════════ */
+.swipe{position:relative;border-radius:.55rem}
+.scroll-x{
+  overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  touch-action:pan-x pan-y;
+  scrollbar-width:thin;scrollbar-color:#D3D6D9 transparent;
+  border-radius:.55rem;
+}
+.scroll-x::-webkit-scrollbar{height:6px}
+.scroll-x::-webkit-scrollbar-thumb{background:#D8DBDE;border-radius:3px}
+.scroll-x::-webkit-scrollbar-track{background:transparent}
+
+.swipe::before,.swipe::after{
+  content:"";position:absolute;top:0;bottom:0;width:2.6rem;
+  pointer-events:none;z-index:3;opacity:1;transition:opacity .22s ease;
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+}
+.swipe::before{
+  left:0;border-radius:.55rem 0 0 .55rem;
+  background:linear-gradient(to right,var(--paper) 15%,transparent);
+  -webkit-mask-image:linear-gradient(to right,#000,transparent);
+  mask-image:linear-gradient(to right,#000,transparent);
+}
+.swipe::after{
+  right:0;border-radius:0 .55rem .55rem 0;
+  background:linear-gradient(to left,var(--paper) 15%,transparent);
+  -webkit-mask-image:linear-gradient(to left,#000,transparent);
+  mask-image:linear-gradient(to left,#000,transparent);
+}
+.swipe.at-start::before{opacity:0}
+.swipe.at-end::after{opacity:0}
+
+/* minimum legible widths — below these the maps scroll rather than shrink */
+.civics .scroll-x > svg{min-width:44rem}
+.mirror{min-width:52rem}
+.beads{min-width:max-content}
+.link{min-width:4.6rem}
+
+/* ═══════════════════════════════════════════════════════════════
    ABOVE — the constitutional diagram
    ═══════════════════════════════════════════════════════════════ */
 .civics{margin:0 0 1.4rem;padding:0}
@@ -151,7 +196,7 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
 .cascade-head span{
   font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--mute);
 }
-.beads{list-style:none;margin:0;padding:var(--pad,6rem) 0 0;display:flex;align-items:flex-start;gap:0}
+.beads{list-style:none;margin:0;padding:var(--pad,6rem) 0 var(--padb,.4rem);display:flex;align-items:flex-start;gap:0}
 
 .stack{position:relative;flex:0 0 auto;width:8.2rem;display:flex;flex-direction:column}
 .bead{
@@ -179,7 +224,7 @@ a:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius
    sits on the same top line regardless of what hangs off it */
 .over{position:absolute;bottom:100%;left:0;right:0}
 .under{position:absolute;top:100%;left:0;right:0}
-.cascade.has-under{padding-bottom:9.6rem}
+.cascade.has-under .beads{--padb:9.4rem}
 .over .bead,.under .bead{width:100%;border-top-width:2px;opacity:.96}
 .over .bead b,.under .bead b{font-size:.76rem}
 
@@ -244,29 +289,10 @@ footer .year{margin-top:.9rem}
 /* ═══════════════════════════════════════════════════════════════
    NARROW
    ═══════════════════════════════════════════════════════════════ */
-@media(max-width:1240px){
-  .beads{flex-wrap:wrap;gap:.45rem}
-  .stack{width:calc(50% - .8rem)}
-  .over,.under{position:static}
-  .cascade.has-under{padding-bottom:1.3rem}
-  .beads{padding-top:0}
-  .link{height:auto}
-  .link span{position:static;text-align:left;display:block}
-  .link{flex:0 0 100%;padding:.15rem 0 .15rem 1rem;background:none}
-  .link::before{display:none}
-  .link::after{left:.15rem;right:auto;border-left:3px solid transparent;
-    border-right:3px solid transparent;border-top:4px solid #B9BEC4;border-bottom:0}
-}
-@media(max-width:900px){
-  .mirror{grid-template-columns:1fr 1fr;gap:1.8rem 1rem;border-top:0}
-  .col{padding-top:0;border-top:2px solid var(--c)}
-  .col::before{display:none}
-  .col-head{text-align:left;margin-top:.7rem}
-}
+
+
 @media(max-width:620px){
   body{font-size:16px}
-  .mirror{grid-template-columns:1fr;gap:1.7rem}
-  .stack{width:100%}
   .ag b{font-size:1.05rem}
   .ag .fail{font-size:.85rem}
   .statement,.note,.small,.civics figcaption,.colophon,.centred{text-align:left}
@@ -274,7 +300,8 @@ footer .year{margin-top:.9rem}
 }
 @media print{
   body{background:#fff;font-size:11pt}
-  .mirror{grid-template-columns:1fr 1fr}
+  .swipe::before,.swipe::after{display:none}
+  .scroll-x{overflow:visible}
   .ag,.cascade,.stack{break-inside:avoid}
 }
 
