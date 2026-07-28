@@ -377,3 +377,61 @@ is an argument, not a fact. The page states the object and the omission and stop
 (2021) and Public healthcare (2023) to keep the chain chronological, and widened
 it to 2024 to cover the report released the day before trial. If there was only
 one report, correct it to that year.
+
+---
+
+## Corrections made from the LSC file
+
+| Was | Now | Source |
+|---|---|---|
+| "1:100 against a sworn figure" | **$100,000 against $7 million** sworn overseas | your figures |
+| "order removed when representation ended" | **removed by order 14 Feb 2024, five days before the 19 Feb trial** | complaint of 5 Dec 2024 |
+| "professional complaint not investigated" | **conduct complaint suspended since February 2025** | OLSC notifications 13 Feb 2025, 25 Sep 2025 |
+
+The order chronology, from the complaint: **s.102NA made by Order 1 on 10 March
+2023; removed by Order 5 on 14 February 2024; trial listed 19 February 2024.**
+Representation ceased ten days before trial; the order went five days before it.
+
+That is a sharper fact than the one the page carried before. The protection did
+not lapse when the lawyer left. It was removed, by application, on a date, with
+the trial five days away.
+
+## The ICL card
+
+> Appointed by the court and funded by Legal Aid. The s.102NA protection made in
+> March 2023 was removed by order on 14 February 2024, five days before trial and
+> after the protected party had become unrepresented. Police material subpoenaed
+> in 2023 was not disclosed. A conduct complaint lodged in December 2024 alleges
+> partiality, failure to act on family violence evidence, and intervention in the
+> protected party's own legal aid application. **The investigation has been
+> suspended since February 2025.**
+
+Two constructions to keep:
+
+**"alleges"** — the complaint's contents are described as allegations, because
+that is what they are until determined. The page does not assert them.
+
+**"suspended since February 2025"** — this is the *documented* fact, and it is
+the finding. Fifteen months of suspension needs no adjective. It is also the only
+sentence in the card that is not an allegation, which is why it lands hardest.
+
+The first line — **appointed by the court and funded by Legal Aid** — does quiet
+work. The body said to have intervened in a legal aid application is itself paid
+by legal aid.
+
+## The valuations card
+
+> The business was valued at $100,000 in the proceedings, against $7 million sworn
+> by the same party in an overseas filing. Executed contracts for the sale of the
+> business, and a new entity holding its assets, were not before the court;
+> bankruptcy documents were produced shortly before enforcement. A property
+> valuation delivered days before trial increased the assessed value, while the
+> Valuer General's figures for the same period fell below the previous year's.
+
+The property valuation sentence is built as a **divergence, not a motive**. Two
+figures moving in opposite directions over the same period, one of them official.
+No reader needs to be told what that suggests, and asserting it would be the one
+sentence a valuer's insurer could act on.
+
+⚠️ **VERIFY**: the $7 million figure and where it was sworn; the Valuer General
+figures for the relevant years; and the date the bankruptcy documents were served.
